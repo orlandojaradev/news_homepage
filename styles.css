@@ -1,0 +1,392 @@
+/***************************** VARIABLES **********************************/
+:root {
+  --orange: hsl(35, 77%, 62%);
+  --red: hsl(5, 85%, 63%);
+  --off-white: hsl(36, 100%, 99%);
+  --grayish-blue: hsl(233, 8%, 79%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
+}
+
+/***************************** GENERAL STYLES *******************************/
+html {
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--off-white);
+  position: relative;
+  margin: 0;
+}
+body img {
+  width: 100%;
+  height: auto;
+}
+body li {
+  list-style: none;
+}
+body a {
+  text-decoration: none;
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body p,
+body ul {
+  margin: 0;
+  padding: 0;
+}
+
+/*********************** CONTAINER STYLES **************************/
+.container {
+  padding: 0 1.5rem;
+}
+
+/***************************** HEADER STYLES **********************/
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 5rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: var(--off-white);
+  box-shadow: 0 1px 2px 0 #ddd;
+}
+.header .shadow {
+  display: none;
+  position: absolute;
+}
+.header .logo {
+  width: 14%;
+  cursor: pointer;
+}
+.header .btn-open-menu {
+  width: 11%;
+  cursor: pointer;
+}
+.header .menu {
+  width: 70%;
+  padding: 9rem 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--off-white);
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
+  z-index: 2;
+}
+.header .menu .btn-close-menu {
+  width: 8vw;
+  height: 8vw;
+  position: fixed;
+  top: 1.7rem;
+  right: 1.3rem;
+  z-index: 2;
+  cursor: pointer;
+}
+.header .menu a {
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1.5rem;
+  color: var(--very-dark-blue);
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.header .menu a:hover {
+  background-color: var(--dark-grayish-blue);
+  color: var(--off-white);
+}
+.header .translate {
+  transition: transform 0.3s ease;
+  transform: translateX(0%);
+}
+
+/************************  MENU STYLES  ***************************/
+.hide-body {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(34, 34, 34, 0.5);
+}
+
+/****************************** MAIN STYLES ********************************/
+.container {
+  margin-top: 3.5rem;
+}
+.container .main-content .img-container {
+  width: 100%;
+  height: 80vw;
+  margin: 0 auto;
+  background-image: url(./assets/images/image-web-3-mobile.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container .main-content h1 {
+  font-weight: 800;
+  font-size: 2.7rem;
+  margin: 1.5rem 0;
+}
+.container .main-content p {
+  word-spacing: 0.1rem;
+  line-height: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.container .main-content a {
+  padding: 1rem 2.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  background-color: var(--red);
+  color: var(--off-white);
+  font-weight: 700;
+  font-size: 14px;
+  border-radius: 3px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.container .main-content a:hover {
+  color: var(--off-white);
+  background-color: var(--very-dark-blue);
+}
+.container .aside {
+  padding: 1.5rem 1.5rem;
+  margin-top: 5rem;
+  background-color: var(--very-dark-blue);
+}
+.container .aside h2 {
+  color: var(--orange);
+  font-size: 2rem;
+}
+.container .aside .aside-item {
+  padding-top: 2rem;
+}
+.container .aside .aside-item:not(.no-border) {
+  margin-top: 2rem;
+  border-top: thin solid var(--grayish-blue);
+}
+.container .aside .aside-item h3 {
+  color: var(--off-white);
+  transition: color 0.2s ease;
+}
+.container .aside .aside-item h3:hover {
+  color: var(--orange);
+}
+.container .aside .aside-item p {
+  color: var(--grayish-blue);
+  line-height: 2rem;
+  margin-top: 0.5rem;
+}
+
+/*************************************** SIDEBAR STYLES **********************************/
+/*********************************** ARTICLES STYLES **********************************/
+.articles {
+  width: 100%;
+  margin: 2rem 0 5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  -moz-column-gap: 0;
+       column-gap: 0;
+}
+.articles .article {
+  width: 100%;
+  height: auto;
+  margin-bottom: 2.3rem;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "img number" "img subtitle" "img description";
+  -moz-column-gap: 1.4rem;
+       column-gap: 1.4rem;
+}
+.articles .article img {
+  grid-area: img;
+}
+.articles .article span {
+  grid-area: number;
+  font-size: 2rem;
+  color: var(--grayish-blue);
+  font-weight: 800;
+}
+.articles .article a h4 {
+  grid-area: subtitle;
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding-top: 0.5rem;
+  color: var(--very-dark-blue);
+  transition: color 0.2s ease;
+}
+.articles .article a h4:hover {
+  color: var(--red);
+}
+.articles .article p {
+  grid-area: description;
+  color: var(--dark-grayish-blue);
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+/********************************** MEDIA QUERIES *************************************/
+@media screen and (min-width: 544px) {
+  .header {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    padding: 1.5rem 0 1rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .header .btn-open-menu {
+    display: none;
+  }
+  .header .menu {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(0%);
+    transition: transform 0.3s ease;
+    background-color: var(--off-white);
+  }
+  .header .menu .btn-close-menu {
+    display: none;
+  }
+  .header .menu a {
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: 3px;
+  }
+  .header img {
+    width: 11%;
+    cursor: pointer;
+  }
+  .header .logo {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+  }
+  .header .logo img {
+    width: 14%;
+  }
+  .container {
+    padding: 0 2rem;
+  }
+}
+@media screen and (min-width: 654px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+@media screen and (min-width: 754px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    padding-top: 1.5rem;
+  }
+  .header .menu a {
+    font-size: 1rem;
+    justify-content: flex-end;
+  }
+  .header .logo {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  .header .logo img {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 940px) {
+  .header {
+    padding-bottom: 2rem;
+  }
+  .menu a {
+    font-size: 1.3rem;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    grid-template-areas: "  main     aside" "articles articles";
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+    row-gap: 5rem;
+  }
+  .container .main-content {
+    grid-area: main;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 55% 1fr;
+    grid-template-areas: "img img" " h1  p" " h1  a";
+  }
+  .container .main-content .img-container {
+    grid-area: img;
+    background-image: url(./assets/images/image-web-3-desktop.jpg);
+    background-size: contain;
+    margin: 0;
+    width: 100%;
+    height: 27vw;
+  }
+  .container .main-content .img-container img {
+    width: 100%;
+    margin: 0;
+  }
+  .container .main-content h1,
+  .container .main-content p,
+  .container .main-content a {
+    margin: 0;
+    margin-top: 2rem;
+  }
+  .container .main-content h1 {
+    grid-area: h1;
+    font-size: 4.6rem;
+    align-self: center;
+  }
+  .container .main-content p {
+    grid-area: p;
+    align-self: flex-start;
+    line-height: 1.8rem;
+  }
+  .container .main-content a {
+    grid-area: a;
+    width: 60%;
+    height: auto;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 1rem;
+    align-self: flex-end;
+  }
+  .container .aside {
+    grid-area: aside;
+    margin: 0;
+  }
+  .container .articles {
+    grid-area: articles;
+  }
+}/*# sourceMappingURL=styles.css.map */
